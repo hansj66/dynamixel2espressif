@@ -1,0 +1,20 @@
+menu "Dynamixel 2 Espressif configuration"
+    
+    config DXL_TX_PIN
+    int "UART TX Pin"
+    default 17
+    help
+        UART TX pin used for communicating with Dynamixel servos
+
+    config DXL_RX_PIN
+    int "UART RX Pin"
+    default 16
+    help
+        UART RX pin used for communicating with Dynamixel servos
+
+    config DXL_DIR_PIN
+    int "UART direction Pin"
+    default 23
+    help
+        UART TX pin used for communicating with Dynamixel servos        
+endmenu

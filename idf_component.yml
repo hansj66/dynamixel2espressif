@@ -1,0 +1,13 @@
+version: "0.0.1"
+
+description: Dynamixel Servo Library
+
+url: https://github.com/hansj66/dynamixel2espressif
+issues: https://github.com/hansj66/dynamixel2espressif/issues
+documentation: https://github.com/hansj66/dynamixel2espressif/tree/main/README.md
+repository: git@github.com:hansj66/dynamixel2espressif.git
+
+maintainers:
+  - "Hans Jørgen Grimstad <hansj66@gmail.com>"
+
+dependencies: ">=5.2.1"
