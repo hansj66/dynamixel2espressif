@@ -21,14 +21,17 @@
 
 Dynamixel2Espressif dxl(MY_UART, (gpio_num_t)CONFIG_DXL_DIR_PIN);
 
-static const char *TAG = "DXL";
-
 void setup() 
 {
     // Set Port baudrate to 1000000bps. This has to match with DYNAMIXEL baudrate.
     dxl.begin(1000000);
     // Set Port Protocol Version. This has to match with DYNAMIXEL protocol version.
     dxl.setPortProtocolVersion(DXL_PROTOCOL_VERSION);
+
+    // Turn off torque when configuring items in EEPROM area
+    dxl.torqueOff(MY_SERVO_ID);
+    dxl.setOperatingMode(MY_SERVO_ID, OP_POSITION);
+    dxl.torqueOn(MY_SERVO_ID);
 }
 
 
@@ -38,16 +41,10 @@ static void dxl_task(void *pvParameters)
 
     while (true )
     {
-        bool ret = dxl.ping(MY_SERVO_ID);
-        if (ret == 1)
-        {
-            ESP_LOGI(TAG, "Yay. Got a response from servo with id: %d", MY_SERVO_ID);
-        }
-        else 
-        {
-            ESP_LOGW(TAG, "Hmm... servo with id: %d seems unresponsive", MY_SERVO_ID);
-        }
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        dxl.setGoalPosition(MY_SERVO_ID, 1000);
+        vTaskDelay(500 / portTICK_PERIOD_MS);
+        dxl.setGoalPosition(MY_SERVO_ID, 500);
+        vTaskDelay(500 / portTICK_PERIOD_MS);
     }
 }
 

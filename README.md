@@ -43,6 +43,10 @@ idf.py menuconfig
 ```
 And then navigate to the menu "Dynamixel 2 Espressif configuration" to customize the pinout to your application.
 
+## Examples
+
+Examples beyond the "ping" and "position" examples can be found in the original [Dynamixel2Arduino](https://github.com/ROBOTIS-GIT/Dynamixel2Arduino) repository. The syntax is identical with the espressif version, except for the constructor.
+
 ## License
 
 This component is provided under Apache 2.0 license, see LICENSE file for details.
