@@ -62,7 +62,6 @@ class SerialPortHandler : public DXLPortHandler
     uart_port_t uart_num_;
     const gpio_num_t dir_pin_;
     unsigned long baud_;
-    unsigned int mbedTXdelayus;
 };
 
 }//namespace DYNAMIXEL

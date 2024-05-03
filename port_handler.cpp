@@ -37,9 +37,8 @@ void SerialPortHandler::begin()
 void SerialPortHandler::begin(unsigned long baud)
 {
   baud_ = baud;
-  mbedTXdelayus = 24000000 / baud;
   
-    uart_config_t uart_config;
+  uart_config_t uart_config;
     
   uart_config.baud_rate = int(baud);
   uart_config.data_bits = UART_DATA_8_BITS;
@@ -114,8 +113,6 @@ size_t SerialPortHandler::write(uint8_t c)
 
   uart_flush(uart_num_);
 
-  // delayMicroseconds(mbedTXdelayus);
-
   ESP_ERROR_CHECK(gpio_set_level(dir_pin_, LOW));
   while(gpio_get_level(dir_pin_) != LOW)
   {
@@ -141,8 +138,6 @@ size_t SerialPortHandler::write(uint8_t *buf, size_t len)
   uart_wait_tx_done(uart_num_, 10 /* 1 RTOS ticks max wait time*/);
 
   uart_flush(uart_num_);
-
-  // delayMicroseconds(mbedTXdelayus);
 
   ESP_ERROR_CHECK(gpio_set_level(dir_pin_, LOW));
   while(gpio_get_level(dir_pin_) != LOW)
