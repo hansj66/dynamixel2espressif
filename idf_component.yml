@@ -8,6 +8,8 @@ documentation: https://github.com/hansj66/dynamixel2espressif/tree/main/README.m
 repository: git@github.com:hansj66/dynamixel2espressif.git
 
 maintainers:
-  - "Hans Jørgen Grimstad <hansj66@gmail.com>"
+  "Hans Jørgen Grimstad <hansj66@gmail.com>"
 
-dependencies: ">=5.2.1"
+dependencies: 
+  idf:
+    version: ">=5.2.1"
