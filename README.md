@@ -59,7 +59,7 @@ The DIR_PIN is not necessary if using RS-485 servos (RS-485 is currently not tes
 
 ### Test setup
 
-![schematic](./schematic/schematic.png)
+![schematic](https://github.com/hansj66/dynamixel2espressif/blob/main/schematic/schematic.png)
 
 This schematic shows a section of the schematic for a PCB with 6 physical ports (Since the servos are normally daisy chained, you can get away with having only having one physical port).
 
